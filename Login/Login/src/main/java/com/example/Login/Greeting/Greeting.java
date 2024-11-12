@@ -1,5 +1,8 @@
 package com.example.Login.Greeting;
 
+import lombok.Getter;
+
+@Getter
 public class Greeting {
     private final long id;
     private final String content;
@@ -9,12 +12,12 @@ public class Greeting {
         this.content = content;
     }
 
-    public long getId() {
-        return id;
+    // 새로운 Greeting을 생성하는 메서드
+    public Greeting withId(long newId) {
+        return new Greeting(newId, this.content);
     }
 
-    public String getContent() {
-        return content;
+    public Greeting withContent(String newContent) {
+        return new Greeting(this.id, newContent);
     }
-
 }
